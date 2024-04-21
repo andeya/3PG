@@ -46,12 +46,12 @@ check-codestyle:
 	poetry run darglint --verbosity 2 {{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }} tests
 {%- endif %}
 
-{%- if cookiecutter.install_safety -%}
+{% if cookiecutter.install_safety -%} 
 check-safety:
 	poetry check
 	poetry run safety check --full-report --ignore 51457
 	poetry run bandit -ll --recursive {{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }} tests
-{%- endif -%}
+{%- endif %} 
 
 lint: test check-codestyle {% if cookiecutter.install_safety %}check-safety{% endif %}
 
