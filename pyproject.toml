@@ -13,17 +13,17 @@ license = "MIT"
 repository = "https://github.com/Undertone0809/python-package-template"
 homepage = "https://github.com/Undertone0809/python-package-template"
 keywords = [
-    "python",
-    "cookiecutter",
-    "template",
-    "packages",
-    "makefile",
-    "best-practices",
-    "poetry",
-    "codestyle",
-    "formatters",
-    "python-packages",
-    "semantic-versions"
+  "python",
+  "cookiecutter",
+  "template",
+  "packages",
+  "makefile",
+  "best-practices",
+  "poetry",
+  "codestyle",
+  "formatters",
+  "python-packages",
+  "semantic-versions",
 ]
 
 # Pypi classifiers: https://pypi.org/classifiers/
@@ -46,7 +46,7 @@ pytest-html = "^3.1.1"
 pytest-cov = "^3.0.0"
 ruff = "^0.2.0"
 black = "^22.12"
-isort = {extras = ["colors"], version = "^5.10.1"}
+isort = { extras = ["colors"], version = "^5.10.1" }
 
 [tool.ruff]
 # https://beta.ruff.rs/docs/settings/
@@ -62,27 +62,27 @@ ignore = ["F401"]
 respect-gitignore = true
 ignore-init-module-imports = true
 exclude = [
-    ".bzr",
-    ".direnv",
-    ".eggs",
-    ".git",
-    ".git-rewrite",
-    ".hg",
-    ".mypy_cache",
-    ".nox",
-    ".pants.d",
-    ".pytype",
-    ".ruff_cache",
-    ".svn",
-    ".tox",
-    ".venv",
-    "__pypackages__",
-    "_build",
-    "buck-out",
-    "build",
-    "dist",
-    "node_modules",
-    "venv",
+  ".bzr",
+  ".direnv",
+  ".eggs",
+  ".git",
+  ".git-rewrite",
+  ".hg",
+  ".mypy_cache",
+  ".nox",
+  ".pants.d",
+  ".pytype",
+  ".ruff_cache",
+  ".svn",
+  ".tox",
+  ".venv",
+  "__pypackages__",
+  "_build",
+  "buck-out",
+  "build",
+  "dist",
+  "node_modules",
+  "venv",
 ]
 
 [tool.ruff.format]
@@ -141,8 +141,23 @@ warn_unused_ignores = true
 [tool.pytest.ini_options]
 # https://docs.pytest.org/en/6.2.x/customize.html#pyproject-toml
 # Directories that are not visited by pytest collector:
-norecursedirs =["{{ cookiecutter.project_name }}", "hooks", "*.egg", ".eggs", "dist", "build", "docs", ".tox", ".git", "__pycache__"]
-doctest_optionflags = ["NUMBER", "NORMALIZE_WHITESPACE", "IGNORE_EXCEPTION_DETAIL"]
+norecursedirs = [
+  "{{ cookiecutter.project_name }}",
+  "hooks",
+  "*.egg",
+  ".eggs",
+  "dist",
+  "build",
+  "docs",
+  ".tox",
+  ".git",
+  "__pycache__",
+]
+doctest_optionflags = [
+  "NUMBER",
+  "NORMALIZE_WHITESPACE",
+  "IGNORE_EXCEPTION_DETAIL",
+]
 
 # Extra options:
 addopts = [

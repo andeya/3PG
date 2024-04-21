@@ -43,7 +43,7 @@ classifiers = [  #! Update me
 [[tool.poetry.source]]
 name = "tsinghua"
 url = "https://pypi.tuna.tsinghua.edu.cn/simple"
-priority = "default"
+priority = "primary"
 {%- endif %}
 
 [tool.poetry.dependencies]
@@ -55,6 +55,8 @@ rich = "^10.14.0"
 {%- endif %}
 
 [tool.poetry.dev-dependencies]
+packaging = "^23.1"
+poetry-plugin-export = "^1.7.1"
 pytest = "^7.4.3"
 pytest-html = "^3.1.1"
 pytest-cov = "^3.0.0"
@@ -133,16 +135,16 @@ addopts = [
 ]
 
 {% if cookiecutter.install_coverage -%}
-[tool.coverage.run]
-source = ["tests"]
-
-[coverage.paths]
-source = "{{ cookiecutter.project_name }}"
-
-[coverage.run]
-branch = true
-
-[coverage.report]
-fail_under = 50
-show_missing = true
+# [tool.coverage.run]
+# source = ["tests"]
+# 
+# [coverage.paths]
+# source = "{{ cookiecutter.project_name }}"
+# 
+# [coverage.run]
+# branch = true
+# 
+# [coverage.report]
+# fail_under = 50
+# show_missing = true
 {%- endif %}

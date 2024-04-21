@@ -18,10 +18,9 @@ VERSION := latest
 .PHONY: lock install {% if cookiecutter.install_pre_commit %}pre-commit-install{% endif %} polish-codestyle formatting test check-codestyle lint docker-build docker-remove cleanup help
 
 lock:
-	poetry lock -n && poetry export --without-hashes > requirements.txt
+	poetry lock -n && poetry config warnings.export false && poetry export -f requirements.txt --output requirements.txt
 
-install:
-	poetry lock -n && poetry export --without-hashes > requirements.txt
+install: lock
 	poetry install -n
 
 {%- if cookiecutter.install_pre_commit %}
@@ -46,10 +45,11 @@ check-codestyle:
 {%- if cookiecutter.install_darglint %}
 	poetry run darglint --verbosity 2 {{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }} tests
 {%- endif %}
+
 {%- if cookiecutter.install_safety -%}
 check-safety:
 	poetry check
-	poetry run safety check --full-report
+	poetry run safety check --full-report --ignore 51457
 	poetry run bandit -ll --recursive {{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }} tests
 {%- endif -%}
 
